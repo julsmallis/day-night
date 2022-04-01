@@ -1,0 +1,161 @@
+
+/* Original colours for the background and circles */
+:root {
+    --clr-light: #1F91FF;
+    --clr-dark: #090923;
+    --clr-circle1: #E99E00;
+
+    --clr-boxshadow1: 
+    0 0 0 10px #E99E00,
+    0 0 0 40px #E99E00,
+    0 0 0 40px #D59305,
+    0 0 0 80px #D59305,
+    0 0 0 80px #CB8A00,
+    0 0 0 120px #CB8A00,
+    0 0 0 120px #B27900,
+    0 0 0 150px #B27900,
+    0 0 0 150px #A16D00,
+    0 0 0 160px #A16D00;
+
+    --clr-border1: 4px #E99E00;
+
+    --foreground: var(--clr-dark);
+    --background: var(--clr-light);
+    --circle1: var(--clr-circle1);
+    --boxs1: var(--clr-boxshadow1);
+    --border1:var(--clr-border1);
+    
+
+}
+
+/* javascript-eventlistener funtion uses this to change mode from night to day time */
+/* This contains all of the properties and colours needed to change */
+
+.darkmode {
+
+    --clr-light: #1F91FF;
+    --clr-dark: #090923;
+    --clr-circle1: #F2F2F2; 
+
+    --clr-boxshadow1:
+    0 0 0 10px #8B8B96,
+    0 0 0 40px #8B8B96,
+    0 0 0 40px #747482,
+    0 0 0 80px #747482,
+    0 0 0 80px #585869,
+    0 0 0 120px #585869,
+    0 0 0 120px #3B3B50,
+    0 0 0 150px #3B3B50,
+    0 0 0 150px #35354A,
+    0 0 0 160px #35354A;
+
+    --clr-border1: 4px #8B8B96;
+
+
+    --foreground: var(--clr-light);
+    --background: var(--clr-dark);
+    --circle1: var(--clr-circle1);
+    --boxs1: var(--clr-boxshadow1);
+    --border1:var(--clr-border1);
+
+}
+
+
+/* The body background is dependant on the var function and the mode its currently in */
+body {
+    background: var(--background);
+}
+
+/* Used to align the circles (sun & moon) in the centre of the page */
+
+.colour-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 300px;
+}
+
+/* this controls the properties of the sun and moon */
+/* colour is changed through var functions */
+
+.circle1 {
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    margin: 50px;
+    background-color: var(--circle1);
+    box-shadow:
+    var(--boxs1)
+}
+
+/* Click Me properties */
+
+h2 {
+    color: white;
+    text-align: center;
+    margin-top: 300px;
+    font-size: 2em;
+    font-family: "robson";
+    letter-spacing: 2px;
+}
+
+/* Used to align the switch in the centre of the page */
+
+.switchbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    
+
+
+input[type="checkbox"] {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+/* controls the switchbox that holds the switch */
+
+label {
+    display: block;
+    width: 300px;
+    height: 50px;
+    border: var(--border1);
+    border-style: solid;
+    background-color: #c9c9c9;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 0 0 20px #f8f5f550;
+}
+
+/* controls the switch properties and makes it a circle */
+
+label:after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    border: 2px rgb(197, 197, 197);
+    border-style: solid;
+    background-color: #e8f5f7;
+    position: absolute;
+    border-radius: 70px;
+    top: 3px;
+    left: 5px;
+    transition: 0.5s;
+}
+
+input:checked + label:after {
+    left: calc(100% - 10px);
+    transform: translateX(-100%);
+}
+
+
+
+label:active:after {
+    width: 40px;
+}
+
+
